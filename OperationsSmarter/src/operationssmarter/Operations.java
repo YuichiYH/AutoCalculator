@@ -50,11 +50,27 @@ public class Operations {
     public void MakeOp(){
         char[] ops = this.getOps();
         double[] nums = this.getNums();
+        double res = 0;
+        int counter = 0;
+        String newOp = "", numStr;
         
-        if(nums[0] == 0 && nums.length == 0){
+        
+        if(nums[0] == 0 && nums.length == 1){
             System.out.println("Invalid operators, or leaving");
             System.exit(0);
         }
+        
+        //check mult
+        //Notes - transform used values in NaN to check if they are already used
+        for(int i = 0; i < ops.length; i++){
+            if(ops[i] == 'x' || ops[i] == '*' || ops[i] == 'X'){
+                numStr = String.valueOf(nums[i] * nums[i+1]);
+                nums[i] = Double.NaN;
+                nums[i+1] = Double.NaN;
+                newOp += numStr;
+            }
+        }
+        
         
     } 
 }
