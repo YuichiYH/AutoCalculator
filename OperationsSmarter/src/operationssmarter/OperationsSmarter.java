@@ -15,11 +15,13 @@ public class OperationsSmarter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String operation;
+        
         Operations op = new Operations();
         
-        op.getOperation();
+        operation = op.getOperation();
         
-        System.out.println(op.getNums());
+        op.MakeOp(operation);
         
     }
         
